@@ -2,18 +2,19 @@
 
   <div class="card-header">
     <h2>Editer le commentaire</h2>
-  </div>
-  <div class="card-body">
-    <blockquote class="blockquote mb-0">
-    <%= form_for @comment do |f| %>
-    <div class="form-group">
-    <label> Contenu </label>
-    <%= f.text_area :content, class: 'form-control' %>
+     </div>
+      <div class="card-body">
+       <blockquote class="blockquote mb-0">
+         <%= form_for @comment do |f| %>
+         <div class="form-group">
+       <label> Contenu </label>
+      <%= f.text_area :content, class: 'form-control' %>
     </div>
+
     <div class="form-group">
-    <button type="submit" class="btn btn-warning">Modifier le commentaire</button>
-    </div>
-    <% end %>
+     <button type="submit" class="btn btn-warning">Modifier le commentaire</button>
+      </div>
+     <% end %>
     </blockquote>
   </div>
 

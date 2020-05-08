@@ -1,8 +1,8 @@
 
-#### The Famous Gossip
+# The Famous Gossip
 
-# Post and find the most interesting gossips ever ! 
-# Create your account now 
+#### Post and find the most interesting gossips ever ! 
+#### Create your account now 
 
 
 ## Steps
