@@ -1,0 +1,25 @@
+
+<br>
+
+<div class="text-secondary row justify-content-center">
+  <h3>Informations utilisateur </h3>
+</div>
+  <br>
+    
+<% user = User.find(params['id']) %>
+ 
+<div class="text-secondary row justify-content-center">
+ <div class="card" style="width: 30rem;">
+  <div class="card-header font-weight-bold">
+     <%= user.first_name%>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Nom : <%= @user.first_name %> <%= @user.last_name %> </li>
+    <li class="list-group-item">Email : <%= user.email%></li>
+    <li class="list-group-item">Description: <%= user.description%></li>
+    <li class="list-group-item">Age : <%= user.age%></li>
+    <li class="list-group-item"> Ville : <%= user.city.name%>
+    <%= link_to "--> Infos", city_path(user.city.id) %>
+    </li>  </ul>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+  <h1 class="display-4 text-white font-weight-bold">Bienvenue <%= @user %>  !</h1>
+    <p class="lead text-white font-weight-bold">Retrouve tous nos potins en exclusivité et sois le premier au courant ! </p>
+     <hr class="my-4">
+     <p class="text-white">Tu veux faire un remake de Gossip Girl ? </p>
+      <a class="btn btn-outline-light" href="<%=new_gossip_path %>" role="button">Clique ici</a>
+</div>
+
+<div class="row justify-content-center">
+ <h4> Voici la liste des potins &#128133;</h4>
+</div>
+
+<div class="row">
+  <% @gossips.each do |gossip| %>
+    <div class="col-sm-3" style="padding: 20px">
+      <div class="card">
+        <div class="card-header">
+          <h4><%= gossip.title %></h4>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Posté par  <%= gossip.user.first_name %></h5>
+          <%= link_to "Voir le potin", gossip_path(gossip.id), class:"btn btn-outline-dark" %>
+          
+          <% if gossip.likes.where(user_id: current_user).count > 0 %>
+            <%= link_to "Dislike", like_path(:id => gossip.likes.sample), method: :delete, class:"btn btn-secondary" %>
+          <% else %>
+            <%= link_to "like", like_index_path(:id => gossip.id), method: :post, class:"btn btn-secondary" %>
+          <% end %>
+          <%= gossip.likes.count %>
+
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,54 @@
+<div class="jumbotron">
+  <h1 class="display-4 text-white font-weight-bold">Post un gossip <%= @user %>  !</h1>
+    <p class="lead text-white font-weight-bold">On veut tout savoir ;)</p>
+</div>
+
+
+<% if @gossip.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>
+    <ul>
+      <% @gossip.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<div class="row justify-content-center">
+<div class="card create-potin" style="width: 40rem;">
+
+
+  <div class="card-body">
+    <blockquote class="blockquote mb-1">
+      <%= form_tag url_for(action: 'create'), method: "post" do %>
+
+      <div class="row justify-content-center">
+        <%= label_tag 'Titre de ton potin' %>
+      </div>
+        
+        <div class="row justify-content-center">
+         <%= text_field_tag 'title' %>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center">
+         <%= label_tag 'Contenu' %>
+        </div>
+        
+        <div class="row justify-content-center">
+         <%= text_area_tag 'content' %>
+        </div>
+        <br /> <br />
+
+        <div class="row justify-content-center">
+         <%= submit_tag "Envoyer" %>
+        </div>
+
+      <% end %>
+    </blockquote>
+  </div>
+</div>
+</div>
