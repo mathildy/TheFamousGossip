@@ -1,15 +1,15 @@
+
 class SessionsController < ApplicationController
   def new
-
   end
 
   def create
-
     user = User.find_by(email: params[:email])
 
     if user && user.authenticate(params[:password])
 
       log_in(user)
+      remember(user)
 
       redirect_to root_path
 
@@ -20,9 +20,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete(:user_id)
-
+    log_out(current_user)
+    flash[:danger] = 'Vous vous êtes déconnectés.'
     redirect_to root_path
   end
 end
-

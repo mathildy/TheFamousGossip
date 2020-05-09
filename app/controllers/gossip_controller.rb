@@ -4,31 +4,26 @@ class GossipController < ApplicationController
 
 
   def index
-    # Méthode qui récupère tous les potins et les envoie à la view index (index.html.erb) pour affichage
     @gossips = Gossip.all
   end
 
   def show
-    # Méthode qui récupère le potin concerné et l'envoie à la view show (show.html.erb) pour affichage
     @gossip = Gossip.find(params[:id])
 
   end
 
   def new
-    # Méthode qui crée un potin vide et l'envoie à une view qui affiche le formulaire pour 'le remplir' (new.html.erb)
     @gossip = Gossip.new
   end
 
   def create
     @gossip = Gossip.new(title: params[:title], content: params[:content], user_id: current_user.id) 
 
-    if @gossip.save # essaie de sauvegarder en base @gossip
-      # si ça marche, il redirige vers la page d'index du site
-      puts "Tu as réussi"
+    if @gossip.save 
+      puts "Tu as réussi ! "
       redirect_to root_path
     else
-      # sinon, il render la view new (qui est celle sur laquelle on est déjà)
-      puts "ca ne fontionne pas"
+      puts "Cela ne fontionne pas"
       render new_gossip_path
     end
   end
@@ -57,7 +52,7 @@ class GossipController < ApplicationController
       @gossip.destroy
       redirect_to root_path
     else
-      puts "pas possible"
+      puts "Impossible"
     end
   end
 

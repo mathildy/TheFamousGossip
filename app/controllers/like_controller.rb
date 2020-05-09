@@ -10,11 +10,11 @@ class LikeController < ApplicationController
 
     if @like.save # essaie de sauvegarder en base @gossip
       # si ça marche, il redirige vers la page d'index du site
-      puts "Tu as réussi"
+      puts "Success"
       redirect_to root_path
     else
       # sinon, il render la view new (qui est celle sur laquelle on est déjà)
-      puts "ca ne fontionne pas"
+      puts "Fail"
       redirect_to root_path
     end
   end
@@ -27,7 +27,7 @@ class LikeController < ApplicationController
       @like.destroy
       redirect_to root_path
     else
-      puts "pas possible"
+      puts "Impossible"
       redirect_to root_path
     end
   end

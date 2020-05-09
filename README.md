@@ -5,7 +5,7 @@
 #### Create your account now 
 
 
-## Steps
+## Steps :
 * Clone the repo
 * Run bundle install
 * Run rails db:create
