@@ -2,7 +2,7 @@
 # The Famous Gossip
 
 #### Post and find the most interesting gossips ever ! 
-#### Create your account now 
+#### Create your account now : https://thefamousgossip2020.herokuapp.com
 
 
 ## Steps :
