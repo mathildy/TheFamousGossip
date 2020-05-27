@@ -200,6 +200,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  actionpack (>= 5.2.4.3)
+  activestorage (>= 5.2.4.3)
   activesupport (>= 5.2.4.3)
   bcrypt
   bootsnap (>= 1.1.0)
